@@ -1,40 +1,46 @@
-﻿# 新闻卡片 HTML→JPG 导出器
+﻿# social-media-news-cards
+
+> Hermes skill: export HTML cards to HD JPG images for social media. 3x Retina, Playwright screenshot, Xiaohongshu/WeChat format.
 
 将已组装好的 HTML 卡片页面导出为独立 JPG 图片文件，用于小红书/微信公众号等自媒体发布。
 
-## 功能
+## ✨ 特性
 
-- 接收 JSON/Markdown 格式的卡片数据
-- 自动组装 HTML 卡片页面（封面 + 新闻 + 末页）
-- Playwright 3x DPI 高清截图
-- 输出 12 张 JPG 图片（封面 + 10 条新闻 + 末页）
+- 📱 **手机优先**：400×600px 竖版设计，适配小红书/公众号
+- 🔍 **高清输出**：3x Retina 像素密度，1200×1800px 实际分辨率
+- 🎨 **灵活配色**：封面颜色、标题、导读均可配置
+- 🖼️ **真实配图**：优先本地文件，Tavily 搜索补位，禁用无关图库
+- ⚡ **一键导出**：Playwright 自动截图，12 张卡片批量生成
+- 🔒 **本地处理**：图片全部本地化，无防盗链问题
 
-## 安装
+## 🚀 快速开始
 
-将本 skill 复制到 Hermes skills 目录：
+### 1. 安装
 
-\\\
-~/.hermes/skills/creative/social-media-news-cards/
-├── SKILL.md
-├── tutorial.md
-└── references/
-    └── workflow.md
-\\\
+`ash
+# 克隆仓库
+git clone https://github.com/flyanx/social-media-news-cards.git
 
-## 环境依赖
+# 复制到 Hermes skills 目录
+# Windows
+xcopy /E /I social-media-news-cards %USERPROFILE%\.hermes\skills\creative\social-media-news-cards
 
-\\\ash
+# macOS/Linux
+cp -r social-media-news-cards ~/.hermes/skills/creative/social-media-news-cards
+`
+
+### 2. 环境依赖
+
+`ash
 pip install playwright Pillow pyyaml
 playwright install chromium
-\\\
+`
 
 > 如果 Playwright Chromium 下载超时，可改用系统自带的 Edge 浏览器（SKILL 已内置路径）
 
-## 快速使用
+### 3. 准备输入 JSON
 
-### 1. 准备输入 JSON
-
-\\\json
+`json
 {
   "title": "每周新闻快报",
   "year": 2026,
@@ -60,9 +66,9 @@ playwright install chromium
     }
   ]
 }
-\\\
+`
 
-### 2. 触发 SKILL
+### 4. 触发 SKILL
 
 > "导出第32周的卡片"
 
@@ -70,11 +76,11 @@ playwright install chromium
 
 > "生成周报图片，第32周"
 
-### 3. 获取输出
+### 5. 获取输出
 
 在 {标题}/{YYYY}年第{NN}周/ 目录下获取 card_01.jpg ~ card_12.jpg
 
-## 输出规格
+## 📐 输出规格
 
 | 参数 | 值 |
 |---|---|
@@ -84,7 +90,7 @@ playwright install chromium
 | 质量 | 95% |
 | 文件大小 | 90KB ~ 430KB |
 
-## 设计规范
+## 🎨 设计规范
 
 ### 卡片结构
 
@@ -112,7 +118,7 @@ playwright install chromium
 - ❌ 圆角（要直角）
 - ❌ 深色模式（默认浅色）
 
-## 可变参数
+## 🔧 可变参数
 
 | 参数 | 说明 | 示例 |
 |---|---|---|
@@ -121,7 +127,7 @@ playwright install chromium
 | 导读文案 | 每周不同 | "本期关键发现..." |
 | 高亮条目 | 3 条，每周不同 | ["新闻1", "新闻2", "新闻3"] |
 
-## 与其他 SKILL 配合
+## 🔗 与其他 SKILL 配合
 
 ### 上游：新闻数据搜集
 
@@ -130,7 +136,7 @@ playwright install chromium
 
 ### 完整工作流
 
-\\\
+`
 1. hermes-intel / synbio-intel
    → 搜集新闻，入库到知识库
    
@@ -141,9 +147,9 @@ playwright install chromium
    → 导出 JPG 卡片图片
    
 4. 发布到小红书/公众号
-\\\
+`
 
-## 常见问题
+## ❓ 常见问题
 
 ### Q1：截图模糊？
 
@@ -174,6 +180,18 @@ playwright install chromium
 
 > "导出第32周卡片，封面配色 #D4A574 → #A16207"
 
-## 许可证
+## 📁 项目结构
 
-MIT License
+`
+social-media-news-cards/
+├── SKILL.md              # SKILL 定义（必须）
+├── README.md             # 项目说明
+├── LICENSE               # MIT 许可证
+├── tutorial.md           # 使用教程
+└── references/
+    └── workflow.md       # 工作流参考
+`
+
+## 📄 许可证
+
+MIT License · IGEBio-Synapse
