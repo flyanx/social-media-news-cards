@@ -4,6 +4,8 @@
 
 > 本仓库是一个 **Hermes AI Agent Skill**，供 Hermes / Claude Code 等支持 skills 的 agent 加载使用。
 
+> ✨ 已整合：本仓库能力已并入 [**studiohub**](https://github.com/flyanx/studiohub) —— 自媒体内容生产统一入口，单一工作流中即可调用（工作流 C·周报卡片）。
+
 * * *
 
 ## 简介
